@@ -29,5 +29,3 @@
 [![maven](https://img.shields.io/badge/apache--maven-3.8.3-blue)](https://maven.apache.org/)
 [![Spring Boot](https://img.shields.io/badge/spring%20boot-2.7.3-brightgreen)](https://spring.io/projects/spring-boot)
 [![PostgresSQL](https://img.shields.io/badge/postgreSQL-14-blue)](https://www.postgresql.org/)
-
-[![Actions Status](https://github.com/alxkzncoff/job4j_fast_food/workflows/java-ci/badge.svg)](https://github.com/alxkzncoff/job4j_fast_food/actions)
