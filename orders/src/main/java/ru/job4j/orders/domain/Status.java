@@ -3,7 +3,8 @@ package ru.job4j.orders.domain;
 import lombok.*;
 
 /**
- * Пользователь.
+ * Статус заказа.
+ * @see Order
  * @author Aleksandr Kuznetsov.
  * @version 1.0
  */
@@ -12,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(builderMethodName = "of")
-public class User {
+public class Status {
 
-    private String username;
+    private String name;
 }

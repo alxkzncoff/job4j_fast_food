@@ -9,6 +9,7 @@ import java.util.Objects;
 /**
  * Заказ. Состоит из блюд.
  * @see Dish
+ * @see Status
  * @author Aleksandr Kuznetsov.
  * @version 1.0
  */
@@ -21,7 +22,8 @@ public class Order {
 
     private int id;
     private List<Dish> dishes = new ArrayList<>();
-    private User user;
+    private Status status;
+    private Customer customer;
 
     @Override
     public boolean equals(Object o) {
