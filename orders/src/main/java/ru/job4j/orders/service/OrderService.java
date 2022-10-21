@@ -3,20 +3,42 @@ package ru.job4j.orders.service;
 import org.springframework.stereotype.Service;
 import ru.job4j.orders.domain.Order;
 import ru.job4j.orders.domain.Status;
+import ru.job4j.orders.repository.OrderSimpleRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface OrderService {
+public class OrderService {
 
-    Order createOrder(Order order);
+    private final OrderSimpleRepository storage;
 
-    Optional<Order> findById(int id);
+    public OrderService(OrderSimpleRepository storage) {
+        this.storage = storage;
+    }
 
-    List<Order> findAll();
+    public Order createOrder(Order order) {
+        return storage.save(order);
+    }
 
-    Status checkStatus(int orderId);
+    public Optional<Order> findById(int id) {
+        return storage.findById(id);
+    }
 
-    void delete(Order order);
+    public List<Order> findAll() {
+        return storage.findAll();
+    }
+
+    public Status checkStatus(int orderId) {
+        var status = Status.of().name("Not ordered.").build();
+        var order = storage.findById(orderId);
+        order.ifPresent(value -> status.setName(value.getStatus().getName()));
+        return status;
+    }
+
+    public void delete(Order order) {
+        if (storage.findById(order.getId()).isPresent()) {
+            storage.delete(order);
+        }
+    }
 }
